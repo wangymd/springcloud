@@ -2,24 +2,23 @@ package com.springcloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//@EnableHystrixDashboard
 @RestController
+@EnableCircuitBreaker //
 @EnableEurekaClient
-@EnableZuulProxy
 @SpringBootApplication
-public class ZuulApplication {
+public class Producer2Application {
 	
 	@RequestMapping("/test")
 	public String test() {
-		return "zuul is ok";
+		return "producer2 is ok";
 	}
 	
 	public static void main(String[] args) {
-		SpringApplication.run(ZuulApplication.class, args);
+		SpringApplication.run(Producer2Application.class, args);
 	}
 }

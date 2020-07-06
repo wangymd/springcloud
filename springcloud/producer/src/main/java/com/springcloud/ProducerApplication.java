@@ -15,7 +15,7 @@ public class ProducerApplication {
 	
 	@RequestMapping("/test")
 	public String test() {
-		return "producer is ok";
+		return "producer1 is ok";
 	}
 	
 	public static void main(String[] args) {

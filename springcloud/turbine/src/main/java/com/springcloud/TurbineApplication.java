@@ -3,23 +3,24 @@ package com.springcloud;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
+import org.springframework.cloud.netflix.turbine.EnableTurbine;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//@EnableHystrixDashboard
 @RestController
+@EnableHystrixDashboard //启动Hystrix可视化监控看板
 @EnableEurekaClient
-@EnableZuulProxy
+@EnableTurbine
 @SpringBootApplication
-public class ZuulApplication {
+public class TurbineApplication {
 	
 	@RequestMapping("/test")
 	public String test() {
-		return "zuul is ok";
+		return "turbine is ok";
 	}
 	
 	public static void main(String[] args) {
-		SpringApplication.run(ZuulApplication.class, args);
+		SpringApplication.run(TurbineApplication.class, args);
 	}
 }
